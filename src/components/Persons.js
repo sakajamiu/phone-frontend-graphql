@@ -1,7 +1,7 @@
 import { useState } from 'react'
-import {  useQuery } from '@apollo/client'
-import { FIND_PERSON } from '../queries'
+import { useQuery } from '@apollo/client'
 
+import { FIND_PERSON } from '../queries'
 
 const Person = ({ person, onClose }) => {
   return (
@@ -22,7 +22,9 @@ const Persons = ({ persons }) => {
     variables: { nameToSearch },
     skip: !nameToSearch,
   })
-
+  console.log(result)
+  console.log(result.data)
+  console.log(nameToSearch)
   if (nameToSearch && result.data) {
     return (
       <Person
